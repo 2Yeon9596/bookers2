@@ -1,2 +1,7 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<% @books.each do |book| %>
+  Title:<%= book.title %><br>
+  Opinion:<%= book.body %><br>
+  <%= image_tag book.get_image, class: "resize-image" %>
+<% end %>  
+
+<%= render "new", book: @book %>
