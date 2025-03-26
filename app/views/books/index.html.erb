@@ -1,5 +1,7 @@
 <% @books.each do |book| %>
-  Title:<%= book.title %><br>
+  <%= link_to book_path(book.id) do %>
+    Title:<%= book.title %><br>
+  <% end %>  
   Opinion:<%= book.body %><br>
   <%= image_tag book.get_image, class: "resize-image" %>
 <% end %>  

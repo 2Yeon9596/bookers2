@@ -1,2 +1,6 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+Title:<%= @book.title %><br>
+Opinion:<%= @book.body %><br>
+<%= image_tag @book.get_image, class: "resize-image" %><br>
+<%= link_to "Edit", edit_book_path(@book) %><br>
+<%= link_to "Destroy", book_path(@book), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %><br>
+<%= link_to @book.user.name, user_path(@user) %>
