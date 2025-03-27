@@ -3,7 +3,8 @@
     Title:<%= book.title %><br>
   <% end %>  
   Opinion:<%= book.body %><br>
-  <%= image_tag book.get_image, class: "resize-image" %>
+  <%= image_tag book.get_image, class: "resize-image" %><br>
 <% end %>  
 
 <%= render "new", book: @book %>
+<%= render "users/info", user: @user %>

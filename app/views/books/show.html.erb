@@ -1,6 +1,9 @@
+<h1>Book detail</h1>
 Title:<%= @book.title %><br>
 Opinion:<%= @book.body %><br>
 <%= image_tag @book.get_image, class: "resize-image" %><br>
-<%= link_to "Edit", edit_book_path(@book) %><br>
-<%= link_to "Destroy", book_path(@book), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %><br>
-<%= link_to @book.user.name, user_path(@user) %>
+<%= link_to @book.user.name, user_path(@user) %><br>
+<% if @user == current_user %>
+  <%= link_to "Edit", edit_book_path(@book) %><br>
+  <%= link_to "Destroy", book_path(@book), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %><br>
+<% end %>

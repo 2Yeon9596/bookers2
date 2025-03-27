@@ -1,0 +1,9 @@
+<%= render "books/new", book: @book %>
+<%= render "info", user: @user %>
+<% @user.books.each do |book| %>
+  <%= image_tag book.get_image, class: "resize-image" %><br>
+  <%= link_to book_path(book.id) do %>
+    <%= book.title %><br>
+  <% end %>
+  <%= book.body %><br>
+<% end %>
