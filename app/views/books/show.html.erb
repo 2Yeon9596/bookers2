@@ -3,7 +3,6 @@
   Title:<%= @book.title %><br>
 <% end %>
 Opinion:<%= @book.body %><br>
-<%= image_tag @book.get_image, class: "resize-image" %><br>
 <%= link_to @book.user.name, user_path(@user) %><br>
 <% if @user == current_user %>
   <%= link_to "Edit", edit_book_path(@book) %><br>
