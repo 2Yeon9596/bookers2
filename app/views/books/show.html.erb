@@ -7,7 +7,7 @@ Opinion:<%= @book.body %><br>
 <%= link_to @book.user.name, user_path(@user) %><br>
 <% if @user == current_user %>
   <%= link_to "Edit", edit_book_path(@book) %><br>
-  <%= link_to "Destroy", book_path(@book), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %><br>
+  <%= link_to "Destroy", book_path(@book), data: {turbo_method: :delete, turbo_confirm: '本当に消しますか？'} %><br>
 <% end %>
 
 <%= render "new", book: @book_new %>
