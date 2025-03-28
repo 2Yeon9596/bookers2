@@ -11,6 +11,10 @@ class UsersController < ApplicationController
   end
 
   def edit
+    user = User.find(params[:id])
+    unless user.id == current_user.id
+      redirect_to user_path(current_user)
+    end
     @user = User.find(params[:id])
   end
 
@@ -29,4 +33,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:profile_image, :name, :introduction)
   end  
+
 end

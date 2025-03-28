@@ -2,8 +2,4 @@
 <%= image_tag user.get_profile_image, class: "resize-profile-image" %><br>
 <%= user.name %><br>
 <%= user.introduction %><br>
-<% if user == current_user %>
-  <%= link_to "User edit", edit_user_path(user) %><br>
-<% else %>
-  <%= link_to "User edit", user_path(current_user) %><br>
-<% end %>  
+<%= link_to "User edit", edit_user_path(user) %><br>
