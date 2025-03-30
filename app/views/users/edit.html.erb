@@ -1,15 +1,48 @@
-<% if @user.errors.any? %>
-  <%= @user.errors.count %>errors prohibited this obj from being saved:
-  <ul>
-    <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>  
-  </ul>
-<% end %>  
-
-<%= form_with model: @user do |f| %>
-  <%= f.text_field :name %><br>
-  <%= f.file_field :profile_image, accept: "image/*" %><br>
-  <%= f.text_area :introduction %><br>
-  <%= f.submit "Update User" %>
-<% end %>  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-sm-0 mx-auto">
+      <h2>User info</h2>
+      <div id="explanation">
+        <% if @user.errors.any? %>
+        <h3><%= @user.errors.count %>errors prohibited this obj from being saved:</h3>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>  
+        </ul>
+        <% end %> 
+      </div>
+      <%= form_with model: @user do |f| %>
+      <div class="form-group mt-3">
+        <div class="field_with_errors">
+          <label for="user_name">Name</label>
+        </div>  
+        <div class="field_with_errors mt-3">
+          <%= f.text_field :name, class: "form-control", id: "user_name" %>
+        </div>
+      </div>
+      <div class="form-group mt-3">
+        <div class="field_with_errors">
+          <label for="user_profile_image">Image</label>
+        </div>  
+        <div class="field_with_errors mt-3">
+          <%= f.file_field :profile_image, accept: "image/*", class: "form-control", id: "user_profile_image" %>
+        </div>
+      </div>
+      <div class="form-group mt-3">
+        <div class="field_with_errors">
+          <label for="user_introduction">Introduction</label>
+        </div>  
+        <div class="field_with_errors mt-3">
+          <%= f.text_area :introduction, class: "form-control", id: "user_introduction" %>
+        </div>
+      </div>
+      <div class="form-group mt-3"> 
+        <div class="field_with_errors">
+          <%= f.submit "Update User", class: "btn btn-secondary" %>
+        </div>
+      </div>
+      <% end %>    
+    </div>
+  </div>
+</div>

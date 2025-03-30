@@ -1,17 +1,49 @@
-<% if @book.errors.any? %>
-  <%= @book.errors.count %>errors prohibited this obj from being saved:
-  <ul>
-    <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>  
-  </ul>
-<% end %>  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-sm-0 mx-auto">
+      <h1>Editing Book</h1>
+      <div id="explanation">
+        <% if @book.errors.any? %>
+          <h3><%= @book.errors.count %>errors prohibited this obj from being saved:</h3>
+          <ul>
+            <% @book.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>  
+          </ul>
+        <% end %>
+      </div>
+      <%= form_with model: @book do |f| %>
+      <div class="form-group mt-3">
+        <div class="field_with_errors">
+          <label for="book_title">Title</label>
+        </div>  
+        <div class="field_with_errors mt-3">
+          <%= f.text_field :title, class: "form-control", id: "book_name" %>
+        </div>
+      </div>
+      <div class="form-group mt-3">
+        <div class="field_with_errors">
+          <label for="book_opinion">Opinion</label>
+        </div>  
+        <div class="field_with_errors mt-3">
+          <%= f.text_area :body, class: "form-control", id: "book_opinion" %>
+        </div>
+      </div>
+      <div class="form-group mt-3"> 
+        <div class="field_with_errors">
+          <%= f.submit "Update Book", class: "btn btn-success" %>
+        </div>
+      </div>
+      <% end %> 
+      <div class="action-links mt-3">
+        <%= link_to "show", book_path(@book), class: "text-decoration-none" %>
+        | 
+        <%= link_to "Back", books_path, class: "text-decoration-none" %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<h1>Editing Book</h1>
-<%= form_with model: @book do |f| %>
-  <%= f.text_field :title %><br>
-  <%= f.text_area :body %><br>
-  <%= f.submit "Update Book" %>
-<% end %>  
 
-<%= link_to "show", book_path(@book) %> | <%= link_to "Back", books_path %>
+
+

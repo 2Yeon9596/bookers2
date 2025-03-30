@@ -1,10 +1,35 @@
-<h1>Users</h1>
-<% @users.each do |user| %>
-  <%= image_tag user.get_profile_image, class: "resize-profile-image" %>
-  <%= user.name %>
-  <%= link_to "show", user_path(user.id) %>
-<% end %>  
-
-<%= render "books/new", book: @book %>
-<%= render "info", user: @user %>
-
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render "info", user: @user %>
+      <%= render "books/new", book: @book %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <h2 class="border-bottom p-1">Users</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>name</th>
+            <th></th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @users.each do |user| %>  
+          <tr>
+            <td style="width: 200px;">
+              <%= image_tag user.get_profile_image, class: "resize-profile-image" %>
+            </td>
+            <td style="width: 200px;">
+              <%= user.name %>
+            </td>
+            <td></td>
+            <td><%= link_to "show", user_path(user.id), class: "text-decoration-none text-end" %></td> 
+          </tr>  
+        <% end %>   
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

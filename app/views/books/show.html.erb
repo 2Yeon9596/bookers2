@@ -12,11 +12,11 @@
             <td style="width: 150px;">
               <div>
                 <%= image_tag @book.user.get_profile_image, class: "resize-profile-image" %>
-                <p><%= link_to @book.user.name, user_path(@user) %></p>
+                <p><%= link_to @book.user.name, user_path(@user), class: "text-decoration-none" %></p>
               </div> 
             </td>
             <td style="width: 150px;">
-              <%= link_to book_path(@book) do %>
+              <%= link_to book_path(@book), class: "text-decoration-none" do %>
                 <%= @book.title %>
               <% end %>
             </td>
